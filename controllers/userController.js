@@ -16,8 +16,8 @@ module.exports = {
         { $set: req.body },
         { new: true }
       );
-      const { password, __v, createdAt, ...others } = updateUser._doc;
-      res.status(200).json(...others);
+      const { password, __v, createdAt, ...others } = updateUser.toObject();
+      res.status(200).json(others);
     } catch (error) {
       console.error(error);
       res.status(500).json("Internal Server Error");

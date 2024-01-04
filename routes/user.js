@@ -6,7 +6,7 @@ const {
 
 const router = require("express").Router();
 
-// update user
+// Update user
 router.put("/:id", VerifyAndAuthorization, userController.updateUser);
 
 module.exports = router;
