@@ -17,7 +17,7 @@ const UserSchema = new mongoose.Schema(
     },
   },
   {
-    timeStamp: true,
+    timestamps: true, // Fix: Correct key for the timestamps option
   }
 );
 
