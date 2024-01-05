@@ -18,4 +18,5 @@ router.get("/:id", VerifyAndAuthorization, userController.getUser);
 
 //GEt all user
 router.get("/", userController.getAllUser);
+
 module.exports = router;

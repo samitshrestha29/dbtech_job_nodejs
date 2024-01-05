@@ -14,7 +14,7 @@ const verifyToken = (req, res, next) => {
       }
 
       req.user = user;
-      console.log(user);
+      console.log("Decoded Token:", user); // Add this line for debugging
       next();
     });
   } else {
@@ -32,7 +32,7 @@ const VerifyAndAuthorization = (req, res, next) => {
   });
 };
 
-//Get All User
+// Get All User
 const VerifyAndAdmin = (req, res, next) => {
   const token = req.header("Authorization");
   if (!token)
