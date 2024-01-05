@@ -32,4 +32,24 @@ const VerifyAndAuthorization = (req, res, next) => {
   });
 };
 
-module.exports = { verifyToken, VerifyAndAuthorization };
+//Get All User
+const VerifyAndAdmin = (req, res, next) => {
+  const token = req.header("Authorization");
+  if (!token)
+    return res.status(401).json({ error: "Access denied. No token provided." });
+
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    console.log("Decoded Token:", decoded); // Add this line for debugging
+    if (decoded.isAdmin) {
+      next();
+    } else {
+      res.status(403).json({ error: "You are not an admin." });
+    }
+  } catch (error) {
+    console.error("Error verifying token:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
+module.exports = { verifyToken, VerifyAndAuthorization, VerifyAndAdmin };
