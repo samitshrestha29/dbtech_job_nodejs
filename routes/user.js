@@ -17,10 +17,9 @@ router.delete("/:id", VerifyAndAuthorization, userController.deleteUser);
 router.get("/:id", VerifyAndAuthorization, userController.getUser);
 
 //GEt all user
-<<<<<<< HEAD
+
 router.get("/", VerifyAndAdmin, userController.getAllUser);
-=======
+
 router.get("/", userController.getAllUser);
->>>>>>> 156a1f056474916f6a059151e54dbb72c71fbb12
 
 module.exports = router;
